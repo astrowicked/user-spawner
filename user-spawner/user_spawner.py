@@ -31,10 +31,12 @@ def write_to_redis(num_to_generate):
         print "Took {} to complete.".format(end-start)
     return db.hgetall('users')
 
-def write_to_mongo(num_to_generate):
+def write_to_mongo(num_to_generate=0):
     db = DBConnector(config.MONGO_HOST,config.MONGO_PORT,config.MONGO_AUTHDB, config.MONGO_USER, config.MONGO_PASSWORD).mongo_connection()
     num = 0
     user_list = []
+    if num_to_generate == 0:
+        num_to_generate = int(raw_input("Please provide a number of users you would like to spawn: "))
     start = datetime.now()
     print "Starting to generate {} docs at {}.".format(num_to_generate,start)
     for num in xrange(num_to_generate):
@@ -50,4 +52,4 @@ def write_to_mongo(num_to_generate):
     print "Finished inserting {} docs at {}.".format(num,end)
     print "Took {} to complete.".format(end-start)
 
-write_to_mongo(100)
+write_to_mongo()
