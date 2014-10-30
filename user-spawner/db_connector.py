@@ -13,12 +13,13 @@ class DBConnector(object):
 
     def _check_attributes(self, exclude_list=list()):
         for attrib in ['hostname','port','authdb','username','password']:
-            if getattr(self,attrib) is None and attrib not in exclude_list and attrib is not 'port':
-                setattr(self,attrib,raw_input('Please provide me a {}: '.format(attrib)))
-                print getattr(self,attrib)
-            else:
-                setattr(self,attrib,int(raw_input('Please provide me a {}: '.format(attrib))))
-                print getattr(self,attrib)
+            if getattr(self,attrib) is None and attrib not in exclude_list:
+                if attrib is not 'port':
+                    setattr(self,attrib,raw_input('Please provide me a {}: '.format(attrib)))
+                    print getattr(self,attrib)
+                else:
+                    setattr(self,attrib,int(raw_input('Please provide me a {}: '.format(attrib))))
+                    print getattr(self,attrib)
 
 
 
