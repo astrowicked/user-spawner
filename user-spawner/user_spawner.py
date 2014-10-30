@@ -6,9 +6,11 @@ import hashlib
 
 dg = doc_generator.DocumentGenerator()
 
-def write_to_redis(num_to_generate):
+def write_to_redis(num_to_generate=0):
     db = DBConnector(config.REDIS_HOST,config.REDIS_PORT, config.REDIS_PASSWORD).redis_connection()
     num = 0
+    if num_to_generate == 0:
+        num_to_generate = int(raw_input("Please provide a number of users you would like to spawn: "))
     start = datetime.now()
     print "Starting to insert {} docs at {}.".format(num_to_generate,start)
     for num in xrange(num_to_generate):
@@ -52,4 +54,10 @@ def write_to_mongo(num_to_generate=0):
     print "Finished inserting {} docs at {}.".format(num,end)
     print "Took {} to complete.".format(end-start)
 
-write_to_mongo()
+db_tech = raw_input("Where would you like to store the users? [Mongo or Redis] ")
+if db_tech == 'Mongo' or db_tech == 'mongo':
+    write_to_mongo()
+elif db_tech == 'Redis' or db_tech == 'redis':
+    write_to_redis()
+else:
+    print "You didn't choose a valid DB technology."
