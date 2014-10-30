@@ -31,6 +31,6 @@ class DBConnector(object):
         return db
         
     def redis_connection(self):
-        self._check_attributes(['authdb'])
+        self._check_attributes(['authdb','username'])
         connection = Redis(host=self.hostname,port=self.port,db=self.authdb,password=self.password)
         return connection
