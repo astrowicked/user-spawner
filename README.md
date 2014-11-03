@@ -70,7 +70,7 @@ These can be installed using PIP and the requirements.txt file in the root of th
 
 Upcoming
 -------------
- - Option to specify whether using authention or not
+ - Option to specify whether using authentication or not
  - Support for storing in Cassandra
  - Profile types (Ex. Fitness app, Social Media app, Gaming app, etc..)
  - Convert for full CLI use with options and help
