@@ -67,3 +67,10 @@ redis
 These can be installed using PIP and the requirements.txt file in the root of the repo:
 
 `pip install -r requirements.txt`
+
+Upcoming
+-------------
+ - Option to specify whether using authention or not
+ - Support for storing in Cassandra
+ - Profile types (Ex. Fitness app, Social Media app, Gaming app, etc..)
+ - Convert for full CLI use with options and help
