@@ -1,5 +1,8 @@
 #Config for user-generator
 
+##CASSANDRA##
+CASSANDRA_HOST = None
+CASSANDRA_PORT = None
 
 ##MONGO##
 MONGO_HOST = None
