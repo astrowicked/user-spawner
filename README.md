@@ -1,4 +1,4 @@
-user-spawner
+user-spawner v0.1
 ============
 
 This is a mock user profile genetator that will store generated user profiles into a database.
