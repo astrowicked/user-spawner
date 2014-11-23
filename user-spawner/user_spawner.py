@@ -38,10 +38,9 @@ def write_to_redis(num_to_generate=0):
         num += 1
         end = datetime.now()
     values = pipe.execute()
-    print values
     print "Finished inserting {} docs at {}.".format(num, end)
     print "Took {} to complete.".format(end-start)
-    return db.hgetall('users')
+    return values
 
 
 def write_to_mongo(num_to_generate=0):
@@ -137,7 +136,7 @@ def write_to_cassandra(num_to_generate=0):
                         last_name text,
                         age int,
                         date_joined timestamp,
-                        PRIMARY KEY (user_id)
+                        PRIMARY KEY (user_id, age)
                         )
                     """
                 )
