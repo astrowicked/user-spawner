@@ -1,10 +1,10 @@
 import config
 from datetime import datetime
-import doc_generator
+import profile_generator
 from db_connector import DBConnector
 import hashlib
 
-dg = doc_generator.DocumentGenerator()
+dg = profile_generator.ProfileGenerator()
 
 def write_to_redis(num_to_generate=0):
     db = DBConnector(config.REDIS_HOST,config.REDIS_PORT, config.REDIS_PASSWORD).redis_connection()
